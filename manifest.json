@@ -18,5 +18,6 @@
     "default_title": "Hash Generator",
     "default_popup": "popup.html"
   },
-  "options_page": "options.html"
+  "options_page": "options.html",
+  "permissions": ["storage"]
 }
