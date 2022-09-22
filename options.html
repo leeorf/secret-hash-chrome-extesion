@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hash Generator</title>
+    <link rel="stylesheet" href="options.css" />
+  </head>
+  <body>
+    <div>
+      <aside></aside>
+      <main>
+        <section id="general-section">
+          <h2>General</h2>
+          <div>
+            <label for="appearance-select">Appearance</label>
+            <button
+              id="appearance-select"
+              aria-label="Appearance"
+              aria-haspopup="menu"
+              aria-expanded="false"
+              type="button"
+            >
+              <span>Match system</span>
+            </button>
+          </div>
+        </section>
+
+        <section id="security-section">
+          <h2>Security</h2>
+          <div>
+            <label for="always-hide-input-switch">Always hide input</label>
+            <button
+              id="always-hide-input-switch"
+              aria-checked="false"
+              role="switch"
+              type="button"
+              class="switch"
+            />
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+  <script src="options.js"></script>
+</html>
