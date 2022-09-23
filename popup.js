@@ -17,4 +17,24 @@ saveButtonElement.addEventListener("click", () => {
   chrome.storage.sync.set({
     hashTarget: hashTargetElement.value,
   });
+
+  try {
+    navigator.clipboard.writeText(hashTargetElement.value);
+
+    chrome.storage.sync.get(["showNotification"], (result) => {
+      // Safety check to avoid unexpected behavior due to undefined being a falsy value
+      const showNotification = result.showNotification ?? true;
+
+      if (showNotification) {
+        chrome.notifications.create({
+          type: "basic",
+          title: "Good!",
+          message: "The hash have been copied to your clipboard",
+          iconUrl: "icon.png",
+        });
+      }
+    });
+  } catch (err) {
+    console.error(err);
+  }
 });
