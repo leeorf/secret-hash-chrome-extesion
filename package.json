@@ -8,12 +8,14 @@
   "license": "MIT",
   "scripts": {
     "format": "prettier . --write",
-    "format:check": "prettier . --check"
+    "format:check": "prettier . --check",
+    "start": "webpack --watch --progress --config config/webpack.dev.cjs"
   },
   "devDependencies": {
     "prettier": "^2.7.1",
     "prettier-config-belialuin": "^1.2.0",
     "react": "^18.2.0",
+    "ts-loader": "^9.4.1",
     "typescript": "^4.8.4",
     "webpack": "^5.74.0",
     "webpack-cli": "^4.10.0"
