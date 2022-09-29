@@ -12,6 +12,7 @@
   },
   "devDependencies": {
     "prettier": "^2.7.1",
-    "prettier-config-belialuin": "^1.2.0"
+    "prettier-config-belialuin": "^1.2.0",
+    "typescript": "^4.8.4"
   }
 }
