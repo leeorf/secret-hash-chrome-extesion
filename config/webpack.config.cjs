@@ -1,8 +1,15 @@
 const path = require('node:path');
+const manifest = require('../manifest.json');
+
+const CopyPlugin = require('copy-webpack-plugin');
+const HtmlPlugin = require('html-webpack-plugin');
 
 module.exports = {
   mode: 'development',
-  entry: path.resolve(__dirname, '..', 'src', 'index.tsx'),
+  devtool: 'cheap-module-source-map',
+  entry: {
+    popup: path.resolve(__dirname, '..', 'src', 'popup', 'Popup.tsx'),
+  },
   module: {
     rules: [
       {
@@ -32,6 +39,23 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, '..', 'dist'),
+    // Array format like [name] will resolve to the chunk that is currently being
+    // processed by Webpack
     filename: '[name].[fullhash].bundle.js',
   },
+  plugins: [
+    new CopyPlugin({
+      patterns: [
+        {
+          from: path.resolve(__dirname, '..', 'src', 'manifest.json'),
+          to: path.resolve(__dirname, '..', 'dist'),
+        },
+      ],
+    }),
+    new HtmlPlugin({
+      title: manifest.name,
+      filename: manifest.action.default_popup,
+      chunks: ['popup'],
+    }),
+  ],
 };

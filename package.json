@@ -12,6 +12,8 @@
     "start": "webpack --watch --progress --config config/webpack.config.cjs"
   },
   "devDependencies": {
+    "copy-webpack-plugin": "^11.0.0",
+    "html-webpack-plugin": "^5.5.0",
     "prettier": "^2.7.1",
     "prettier-config-belialuin": "^1.2.0",
     "react": "^18.2.0",
