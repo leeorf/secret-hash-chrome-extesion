@@ -14,6 +14,8 @@
     "prettier": "^2.7.1",
     "prettier-config-belialuin": "^1.2.0",
     "react": "^18.2.0",
-    "typescript": "^4.8.4"
+    "typescript": "^4.8.4",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0"
   }
 }
