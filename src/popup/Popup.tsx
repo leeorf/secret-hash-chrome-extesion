@@ -1,3 +1,9 @@
 import React from 'react';
+import ReactDOM from 'react-dom/client';
 
-export const Hello = () => <h1>Hello world from popup</h1>;
+const rootContainer = document.createElement('div');
+rootContainer.id = 'root';
+document.body.appendChild(rootContainer);
+
+const root = ReactDOM.createRoot(rootContainer);
+root.render(<h1>Hello mf!!</h1>);
