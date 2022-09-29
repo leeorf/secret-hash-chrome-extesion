@@ -9,7 +9,7 @@
   "scripts": {
     "format": "prettier . --write",
     "format:check": "prettier . --check",
-    "start": "webpack --watch --progress --config config/webpack.dev.cjs"
+    "start": "webpack --watch --progress --config config/webpack.config.cjs"
   },
   "devDependencies": {
     "prettier": "^2.7.1",
