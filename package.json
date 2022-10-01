@@ -9,8 +9,7 @@
   "scripts": {
     "format": "prettier . --write",
     "format:check": "prettier . --check",
-    "clear": "rimraf dist",
-    "start": "yarn clear && webpack --watch --progress --config config/webpack.config.cjs"
+    "start": "webpack --watch --progress --config config/webpack.config.cjs"
   },
   "devDependencies": {
     "@types/chrome": "^0.0.197",
