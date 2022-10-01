@@ -9,7 +9,8 @@
   "scripts": {
     "format": "prettier . --write",
     "format:check": "prettier . --check",
-    "start": "webpack --watch --progress --config config/webpack.config.cjs"
+    "clear": "rimraf dist",
+    "start": "yarn clear && webpack --watch --progress --config config/webpack.config.cjs"
   },
   "devDependencies": {
     "@types/react": "^18.0.21",
