@@ -3,6 +3,7 @@ const manifest = require('../manifest.json');
 
 const CopyPlugin = require('copy-webpack-plugin');
 const HtmlPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
   mode: 'development',
@@ -57,5 +58,6 @@ module.exports = {
       filename: manifest.action.default_popup,
       chunks: ['popup'],
     }),
+    new CleanWebpackPlugin(),
   ],
 };
