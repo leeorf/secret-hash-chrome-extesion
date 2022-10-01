@@ -79,6 +79,9 @@ module.exports = {
     },
   },
   plugins: [
+    new CleanWebpackPlugin({
+      cleanStaleWebpackAssets: false,
+    }),
     new CopyPlugin({
       patterns: [
         {
@@ -87,7 +90,6 @@ module.exports = {
         },
       ],
     }),
-    new CleanWebpackPlugin(),
     ...getHtmlPlugins([manifest.action.default_popup, manifest.options_page]),
   ],
   optimization: {
