@@ -5,11 +5,24 @@ const CopyPlugin = require('copy-webpack-plugin');
 const HtmlPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
+const getHtmlPlugins = (filenames = []) => {
+  return filenames.map(filename => {
+    const filenameWithoutExtension = path.parse(filename).name;
+
+    return new HtmlPlugin({
+      title: manifest.name,
+      filename,
+      chunks: [filenameWithoutExtension],
+    });
+  });
+};
+
 module.exports = {
   mode: 'development',
   devtool: 'cheap-module-source-map',
   entry: {
     popup: path.resolve(__dirname, '..', 'src', 'popup', 'Popup.tsx'),
+    options: path.resolve(__dirname, '..', 'src', 'options', 'Options.tsx'),
   },
   output: {
     path: path.resolve(__dirname, '..', 'dist'),
@@ -53,11 +66,7 @@ module.exports = {
         },
       ],
     }),
-    new HtmlPlugin({
-      title: manifest.name,
-      filename: manifest.action.default_popup,
-      chunks: ['popup'],
-    }),
     new CleanWebpackPlugin(),
+    ...getHtmlPlugins([manifest.action.default_popup, manifest.options_page]),
   ],
 };
