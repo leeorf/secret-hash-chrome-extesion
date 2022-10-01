@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "Hash Generator",
+  "version": "0.0.0",
+  "description": "Chrome extension to hash plain strings.",
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Hash Generator",
+    "default_icon": "icon.png"
+  },
+  "options_page": "options.html"
+}

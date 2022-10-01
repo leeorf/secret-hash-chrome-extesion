@@ -10,6 +10,12 @@ module.exports = {
   entry: {
     popup: path.resolve(__dirname, '..', 'src', 'popup', 'Popup.tsx'),
   },
+  output: {
+    path: path.resolve(__dirname, '..', 'dist'),
+    // Array format like [name] will resolve to the chunk that is currently being
+    // processed by Webpack
+    filename: '[name].[fullhash].bundle.js',
+  },
   module: {
     rules: [
       {
@@ -37,17 +43,11 @@ module.exports = {
       '@utils': path.resolve(__dirname, 'src', 'utils.ts'),
     },
   },
-  output: {
-    path: path.resolve(__dirname, '..', 'dist'),
-    // Array format like [name] will resolve to the chunk that is currently being
-    // processed by Webpack
-    filename: '[name].[fullhash].bundle.js',
-  },
   plugins: [
     new CopyPlugin({
       patterns: [
         {
-          from: path.resolve(__dirname, '..', 'src', 'manifest.json'),
+          from: path.resolve(__dirname, '..', 'src', 'static'),
           to: path.resolve(__dirname, '..', 'dist'),
         },
       ],
