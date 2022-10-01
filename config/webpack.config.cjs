@@ -23,12 +23,26 @@ module.exports = {
   entry: {
     popup: path.resolve(__dirname, '..', 'src', 'popup', 'Popup.tsx'),
     options: path.resolve(__dirname, '..', 'src', 'options', 'Options.tsx'),
+    background: path.resolve(
+      __dirname,
+      '..',
+      'src',
+      'background',
+      'background.ts'
+    ),
+    contentScript: path.resolve(
+      __dirname,
+      '..',
+      'src',
+      'contentScript',
+      'contentScript.ts'
+    ),
   },
   output: {
     path: path.resolve(__dirname, '..', 'dist'),
     // Array format like [name] will resolve to the chunk that is currently being
     // processed by Webpack
-    filename: '[name].[fullhash].bundle.js',
+    filename: '[name].js',
   },
   module: {
     rules: [
