@@ -18,8 +18,6 @@ const getHtmlPlugins = (filenames = []) => {
 };
 
 module.exports = {
-  mode: 'development',
-  devtool: 'cheap-module-source-map',
   entry: {
     popup: path.resolve(__dirname, '..', 'src', 'popup', 'Popup.tsx'),
     options: path.resolve(__dirname, '..', 'src', 'options', 'Options.tsx'),
