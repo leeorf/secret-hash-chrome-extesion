@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import './options.css';
 
 const rootContainer = document.createElement('div');
 rootContainer.id = 'root';
