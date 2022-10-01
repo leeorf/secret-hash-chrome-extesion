@@ -69,4 +69,9 @@ module.exports = {
     new CleanWebpackPlugin(),
     ...getHtmlPlugins([manifest.action.default_popup, manifest.options_page]),
   ],
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+    },
+  },
 };
