@@ -1,5 +1,5 @@
 const path = require('node:path');
-const manifest = require('../manifest.json');
+const manifest = require('../src/static/manifest.json');
 
 const CopyPlugin = require('copy-webpack-plugin');
 const HtmlPlugin = require('html-webpack-plugin');
