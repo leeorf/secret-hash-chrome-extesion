@@ -1,6 +1,7 @@
 {
   "name": "hash-generator",
   "version": "0.0.0",
+  "type": "module",
   "description": "Chrome extension to hash plain strings.",
   "repository": "git@github.com:leeorf/hash-generator.git",
   "author": "Leonardo Rodrigues <leo.rf.dev@gmail.com>",
@@ -29,5 +30,9 @@
     "webpack": "^5.74.0",
     "webpack-cli": "^4.10.0",
     "webpack-merge": "^5.8.0"
+  },
+  "dependencies": {
+    "classnames": "^2.3.2",
+    "framer-motion": "^7.6.1"
   }
 }
