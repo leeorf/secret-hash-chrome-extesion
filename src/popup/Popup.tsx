@@ -117,18 +117,21 @@ const Popup: React.FC<{}> = () => {
             }}
           />
         </div>
-        <button
-          className="input__action-button"
-          type="button"
-          onClick={() =>
-            setSettings({
-              ...settings,
-              hideSecret: !settings.hideSecret,
-            })
-          }
-        >
-          {settings.hideSecret ? '👀' : '🙈'}
-        </button>
+        {settings.loaded && (
+          <button
+            className="input__action-button"
+            type="button"
+            onClick={() =>
+              setSettings({
+                ...settings,
+                hideSecret: !settings.hideSecret,
+              })
+            }
+          >
+            {settings.hideSecret ? '👀' : '🙈'}
+          </button>
+        )}
+
         <div className={toastClassNames}></div>
         <AnimatePresence>
           {hashOperation.status && (
