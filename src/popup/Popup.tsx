@@ -13,12 +13,24 @@ type HashOperation = {
   message?: string;
 };
 
+type Settings = {
+  loaded: boolean;
+  hashAlgorithm: Algorithm;
+  rememberSecret: boolean;
+  hideSecret: boolean;
+};
+
 const Popup: React.FC<{}> = () => {
   const [textToHash, setTextToHash] = useState('');
   const [hashOperation, setHashOperation] = useState<HashOperation>({
     message: '',
   });
-  const [showTextToHash, setShowTextToHash] = useState(false);
+  const [settings, setSettings] = useState<Settings>({
+    loaded: false,
+    hashAlgorithm: Algorithm.sha1,
+    hideSecret: true,
+    rememberSecret: false,
+  });
 
   const toastClassNames = classnames({
     input__toast: true,
@@ -36,7 +48,7 @@ const Popup: React.FC<{}> = () => {
     e.preventDefault();
 
     const [_, err] = await executeAsync(async () => {
-      const hashedText = await hash(textToHash);
+      const hashedText = await hash(textToHash, settings.hashAlgorithm);
       await copyToClipboard(hashedText);
       return hashedText;
     });
@@ -63,6 +75,24 @@ const Popup: React.FC<{}> = () => {
     };
   }, [hashOperation]);
 
+  useEffect(() => {
+    chrome.storage.sync.get(
+      ['rememberSecret', 'hideSecret', 'hashAlgorithm', 'secret'],
+      result => {
+        setSettings({
+          hashAlgorithm: result.hashAlgorithm ?? settings.hashAlgorithm,
+          loaded: true,
+          hideSecret: result.hideSecret ?? settings.hideSecret,
+          rememberSecret: result.rememberSecret ?? settings.rememberSecret,
+        });
+
+        if (result.rememberSecret) {
+          setTextToHash(result.secret ?? '');
+        }
+      }
+    );
+  }, []);
+
   return (
     <form className="popup__form" onSubmit={handleSubmit}>
       <div className="popup__input-container">
@@ -74,16 +104,30 @@ const Popup: React.FC<{}> = () => {
           <input
             id="text-to-hash"
             className="input__text"
-            type={showTextToHash ? 'text' : 'password'}
-            onChange={e => setTextToHash(e.target.value)}
+            value={textToHash}
+            type={settings.hideSecret ? 'password' : 'text'}
+            onChange={e => {
+              if (settings.rememberSecret) {
+                chrome.storage.sync.set({
+                  secret: e.target.value,
+                });
+              }
+
+              setTextToHash(e.target.value);
+            }}
           />
         </div>
         <button
           className="input__action-button"
           type="button"
-          onClick={() => setShowTextToHash(!showTextToHash)}
+          onClick={() =>
+            setSettings({
+              ...settings,
+              hideSecret: !settings.hideSecret,
+            })
+          }
         >
-          {showTextToHash ? '🙈' : '👀'}
+          {settings.hideSecret ? '👀' : '🙈'}
         </button>
         <div className={toastClassNames}></div>
         <AnimatePresence>
