@@ -42,6 +42,7 @@ const Options = () => {
   return (
     <div className="settings">
       <aside>
+        <h1 className="sidebar__header">Settings</h1>
         <div className="navigation">
           <ul className="navigation__list">
             <li>
@@ -93,6 +94,10 @@ const Options = () => {
               </div>
             )}
           </div>
+        </section>
+
+        <section className="main-content__section" id="security">
+          <h2>Security</h2>
           <div className="row">
             <label htmlFor="">Hide secret input by default</label>
             {settings.loaded && (

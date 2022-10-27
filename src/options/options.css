@@ -28,6 +28,10 @@ hr {
   gap: 120px;
 }
 
+.sidebar__header {
+  margin-bottom: 16px;
+}
+
 .navigation {
   position: sticky;
   top: 40px;
