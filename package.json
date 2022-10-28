@@ -1,6 +1,6 @@
 {
   "name": "secret-hash-chrome-extesion",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "description": "Chrome extension to secretly hash texts.",
   "repository": "git@github.com:leeorf/secret-hash-chrome-extesion.git",
