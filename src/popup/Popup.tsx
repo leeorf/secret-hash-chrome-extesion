@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import { Algorithm, HASH_OPERATION_MESSAGE_DELAY } from '../constants';
 import { ErrorBoundary } from '../ErrorBoundary';
@@ -21,6 +21,8 @@ type Settings = {
 };
 
 const Popup: React.FC<{}> = () => {
+  const inputContainerRef = useRef<HTMLDivElement>(null);
+
   const [textToHash, setTextToHash] = useState('');
   const [hashOperation, setHashOperation] = useState<HashOperation>({
     message: '',
@@ -95,28 +97,27 @@ const Popup: React.FC<{}> = () => {
 
   return (
     <form className="popup__form" onSubmit={handleSubmit}>
-      <div className="popup__input-container">
-        <div className="input__text-container">
-          <label htmlFor="text-to-hash" className="input__label">
-            Secret
-          </label>
+      <div className="popup__input-container" ref={inputContainerRef}>
+        <label htmlFor="text-to-hash" className="input__label">
+          Secret
+        </label>
 
-          <input
-            id="text-to-hash"
-            className="input__text"
-            value={textToHash}
-            type={settings.hideSecret ? 'password' : 'text'}
-            onChange={e => {
-              if (settings.rememberSecret) {
-                chrome.storage.sync.set({
-                  secret: e.target.value,
-                });
-              }
+        <input
+          autoFocus
+          id="text-to-hash"
+          className="input__text"
+          value={textToHash}
+          type={settings.hideSecret ? 'password' : 'text'}
+          onChange={e => {
+            if (settings.rememberSecret) {
+              chrome.storage.sync.set({
+                secret: e.target.value,
+              });
+            }
 
-              setTextToHash(e.target.value);
-            }}
-          />
-        </div>
+            setTextToHash(e.target.value);
+          }}
+        />
         {settings.loaded && (
           <button
             className="input__action-button"

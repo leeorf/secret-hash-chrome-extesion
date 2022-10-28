@@ -16,6 +16,10 @@
   padding: 0;
 }
 
+*:focus {
+  outline-offset: 2px;
+}
+
 body {
   width: 600px;
   height: 450px;
@@ -37,13 +41,14 @@ body {
   position: relative;
   display: flex;
   align-items: center;
-  background-color: #fff;
   border-radius: 7px;
   width: 200px;
-  padding: 8px 16px;
 }
 
 .input__label {
+  position: absolute;
+  top: 8px;
+  left: 16px;
   display: block;
   font-size: 0.7rem;
   font-weight: bold;
@@ -61,10 +66,7 @@ body {
   height: 20px;
   width: 100%;
   color: gray;
-}
-
-.input__text:focus {
-  outline: none;
+  padding: 32px 16px 16px;
 }
 
 .input__text[type='password'] {
@@ -74,6 +76,8 @@ body {
 }
 
 .input__action-button {
+  position: absolute;
+  right: 16px;
   cursor: pointer;
   background-color: transparent;
   border: none;
