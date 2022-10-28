@@ -1,9 +1,9 @@
 {
-  "name": "hash-generator",
+  "name": "secret-hash-chrome-extesion",
   "version": "0.0.0",
   "type": "module",
-  "description": "Chrome extension to hash plain strings.",
-  "repository": "git@github.com:leeorf/hash-generator.git",
+  "description": "Chrome extension to secretly hash texts.",
+  "repository": "git@github.com:leeorf/secret-hash-chrome-extesion.git",
   "author": "Leonardo Rodrigues <leo.rf.dev@gmail.com>",
   "license": "MIT",
   "scripts": {
