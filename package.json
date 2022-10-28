@@ -10,7 +10,7 @@
     "format": "prettier . --write",
     "format:check": "prettier . --check",
     "start": "webpack --watch --progress --config config/webpack.dev.cjs",
-    "build": "webpack --watch --progress --config config/webpack.prod.cjs"
+    "build": "webpack --config config/webpack.prod.cjs"
   },
   "devDependencies": {
     "@types/chrome": "^0.0.197",
