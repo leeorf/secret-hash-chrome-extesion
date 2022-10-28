@@ -4,10 +4,6 @@
   box-sizing: border-box;
 }
 
-*:focus {
-  outline-color: #0d2a47;
-}
-
 html {
   scroll-behavior: smooth;
 }
