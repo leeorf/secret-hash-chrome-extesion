@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Hash Generator",
-  "version": "0.0.0",
-  "description": "Chrome extension to hash plain strings.",
+  "name": "Secret Hash",
+  "version": "1.0.0",
+  "description": "Chrome extension to secretly hash texts.",
   "icons": {
     "16": "icon.png",
     "48": "icon.png",
@@ -10,18 +10,9 @@
   },
   "action": {
     "default_popup": "popup.html",
-    "default_title": "Hash Generator",
+    "default_title": "Secret Hash",
     "default_icon": "icon.png"
   },
   "options_page": "options.html",
-  "background": {
-    "service_worker": "background.js"
-  },
-  "content_scripts": [
-    {
-      "matches": ["<all_urls>"],
-      "js": ["contentScript.js"]
-    }
-  ],
   "permissions": ["storage"]
 }

@@ -1,3 +1,3 @@
-# hash-generator
+# secret-hash-chrome-extesion
 
-Chrome extension to hash plain strings.
+Chrome extension to secretly hash texts.
