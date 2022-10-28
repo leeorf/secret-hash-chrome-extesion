@@ -1,6 +1,6 @@
 {
   "name": "hash-generator",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "description": "Chrome extension to hash plain strings.",
   "repository": "git@github.com:leeorf/hash-generator.git",
