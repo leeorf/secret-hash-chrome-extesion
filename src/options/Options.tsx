@@ -99,7 +99,7 @@ const Options = () => {
         <section className="main-content__section" id="security">
           <h2>Security</h2>
           <div className="row">
-            <label htmlFor="">Hide secret input by default</label>
+            <label htmlFor="">Hide input by default</label>
             {settings.loaded && (
               <button
                 aria-checked={settings.hideSecret}
@@ -120,7 +120,14 @@ const Options = () => {
           </div>
 
           <div className="row">
-            <label htmlFor="">Always remember secret</label>
+            <label htmlFor="">
+              <p>Remember secret</p>
+              <p className="label__description">
+                Don't worry, this secret is only saved in your browser. We do
+                not use any type of database to store your data.
+              </p>
+            </label>
+
             {settings.loaded && (
               <button
                 aria-checked={settings.rememberSecret}
